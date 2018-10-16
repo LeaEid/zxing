@@ -202,7 +202,7 @@
             android:textColor="@color/status_text"/>
   
   
-  <TextView android:id="@+id/status_view"
+  <TextView android:id="@+id/err_status_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
