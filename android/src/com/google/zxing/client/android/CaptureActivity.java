@@ -100,6 +100,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private Result savedResultToShow;
   private ViewfinderView viewfinderView;
   private TextView statusView;
+  private TextView errStatusView; /* ADDED BY LEA EID*/
   private View resultView;
   private Result lastResult;
   private boolean hasSurface;
@@ -162,6 +163,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
     resultView = findViewById(R.id.result_view);
     statusView = (TextView) findViewById(R.id.status_view);
+    errStatusView = (TextView) findViewById(R.id.err_status_view); /* ADDED BY LEA EID*/
 
     handler = null;
     lastResult = null;
@@ -223,6 +225,11 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         String customPromptMessage = intent.getStringExtra(Intents.Scan.PROMPT_MESSAGE);
         if (customPromptMessage != null) {
           statusView.setText(customPromptMessage);
+        }
+        /* ADDED BY LEA EID*/
+        String customPromptErrMessage = intent.getStringExtra(Intents.Scan.PROMPT_ERR_MESSAGE);
+        if (customPromptErrMessage != null) {
+          errStatusView .setText(customPromptErrMessage);
         }
 
       } else if (dataString != null &&
